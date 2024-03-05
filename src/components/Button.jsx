@@ -19,7 +19,7 @@ export function Button({ handleClic }) {
         </svg>
       </div>
     </div>
-    <span>Save</span>
+    <span>Send</span>
   </button>
   )
 }

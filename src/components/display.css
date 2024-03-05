@@ -54,3 +54,7 @@ textarea {
 #description {
   height: 100px;
 }
+
+.desc-txt {
+  align-items: flex-start;
+}
