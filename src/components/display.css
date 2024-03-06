@@ -62,3 +62,23 @@ textarea {
 .desc-txt {
   align-items: flex-start;
 }
+
+@media screen and (max-width: 768px) {
+  .img-cont {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  #description {
+    width: 100%;
+  }
+  .desc-txt {
+    width: 100%;
+  }
+  .save-button {
+    width: 100%;
+  }
+  
+}
