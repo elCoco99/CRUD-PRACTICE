@@ -5,15 +5,6 @@ import { client } from '../data/api/send'
 
 export function Display() {
 
-
-/*
-const insertSQL = async (title, desc, rel_id) => {
-  const result = await client.execute(`UPDATE ${table_name} SET TITLE = ${title}, DESCRIPTION = ${desc} WHERE REL_ID = ${rel_id}`);
-  console.log(result)
-  return result
- } 
-
- */
   const handleSubmit = async (e) => {
     e.preventDefault()
     const table_name = 'mspics'
@@ -23,12 +14,7 @@ const insertSQL = async (title, desc, rel_id) => {
 
     const query = `UPDATE ${table_name} SET TITLE = "${title}", DESCRIPTION = "${desc}" WHERE REL_ID = ${buttonID}`
     client.execute(query)   
-    /*const result = await client.execute(`UPDATE ${table_name} SET TITLE = ${title}, DESCRIPTION = ${desc} WHERE REL_ID = ${buttonID}`);
-    console.log(result)*/
-
   }
-
-    
   
   return (
     <>
