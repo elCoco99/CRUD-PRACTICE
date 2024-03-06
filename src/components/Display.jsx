@@ -1,16 +1,33 @@
 import './display.css'
 import { pics } from '../images/images.json'
 import { Button } from './Button'
+import { client } from '../data/api/send'
 
 export function Display() {
-  
-  const handleSubmit = (e) => {
+
+
+/*
+const insertSQL = async (title, desc, rel_id) => {
+  const result = await client.execute(`UPDATE ${table_name} SET TITLE = ${title}, DESCRIPTION = ${desc} WHERE REL_ID = ${rel_id}`);
+  console.log(result)
+  return result
+ } 
+
+ */
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    const table_name = 'mspics'
     const title = new FormData(e.target).get('title')
     const desc = new FormData(e.target).get('description')
     const buttonID = e.target.querySelector('button').id
-    console.log(`title: ${title} description: ${desc} ID: ${buttonID}`)
+
+    const query = `UPDATE ${table_name} SET TITLE = "${title}", DESCRIPTION = "${desc}" WHERE REL_ID = ${buttonID}`
+    client.execute(query)   
+    /*const result = await client.execute(`UPDATE ${table_name} SET TITLE = ${title}, DESCRIPTION = ${desc} WHERE REL_ID = ${buttonID}`);
+    console.log(result)*/
+
   }
+
     
   
   return (
