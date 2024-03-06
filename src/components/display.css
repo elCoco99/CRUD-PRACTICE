@@ -44,11 +44,15 @@ textarea {
   width: 200px;
   height: 30px;
   margin: 5px;
-  vertical-align: top;
+  vertical-align: text-bottom;
   border-radius: 5px;
+  margin-top: 10px;
+  resize: none;
 }
 .save-button {
+  display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 #description {

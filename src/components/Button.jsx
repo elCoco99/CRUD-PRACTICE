@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import './button.css'
 
-export function Button({ handleClic }) {
+export function Button({ id }) {
   return (
-    <button onClick={handleClic}>
+    <button id={id}type='submit'>
     <div className="svg-wrapper-1">
       <div className="svg-wrapper">
         <svg

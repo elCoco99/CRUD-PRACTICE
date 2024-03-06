@@ -3,38 +3,40 @@ import { pics } from '../images/images.json'
 import { Button } from './Button'
 
 export function Display() {
-  function handleClick() {
-    addEventListener('click', () => {
-      const title = document.getElementById('title').value
-      const description = document.getElementById('description').value
-      console.log(title, description)
-    })
+  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const title = new FormData(e.target).get('title')
+    const desc = new FormData(e.target).get('description')
+    const buttonID = e.target.querySelector('button').id
+    console.log(`title: ${title} description: ${desc} ID: ${buttonID}`)
   }
+    
   
   return (
     <>
       {pics.map(pic => {
         return (
-          <div key={pic.id } className='img-cont'>
+          <div key={pic.id} className='img-cont'>
             <img loading='lazy' src={pic.url} alt="image" />
                   <p>
                     ID: {pic.id}
                   </p>
-            <form action="send">
+            <form onSubmit={handleSubmit} action="send">
               <ul>               
                 <li>
                   <label htmlFor="title">Title</label>
-                  <textarea id='title' type="text" />
+                  <textarea name='title' placeholder='pic title...' id='title' type="text" />
                 </li>
 
                 <li className='desc-txt'>
-                  <label htmlFor="description">Description</label>
-                  <textarea id='description'className='text-desc' type="text" />
+                  <label  htmlFor="description">Description</label>
+                  <textarea name='description'placeholder='short pic description...' id='description'className='text-desc' type="text" />
                 </li>
 
-                <li className='save-button'>
-                  <Button onClick={handleClick()} />
-                </li>
+                <div className='save-button'>
+                  <Button id={pic.id} />
+                </div>
               </ul>
             </form>
           </div>
